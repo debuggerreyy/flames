@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flameshope</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            background: linear-gradient(45deg, #ff9e9e, #ff6a6a, #ff5050);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+            color: white;
+            padding: 0;
+            margin: 0;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 50px;
+        }
+
+        input {
+            font-size: 1.2rem;
+            padding: 10px;
+            margin: 20px;
+            border: 2px solid #fff;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        input:focus {
+            transform: scale(1.1);
+            border-color: #ff6a6a;
+        }
+
+        input[type="submit"] {
+            background-color: #ff6a6a;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff5050;
+        }
+
+        .heart {
+            position: fixed; /* Changed to fixed */
+            bottom: 20px; /* Positioned at the bottom-right */
+            right: 20px; /* Positioned at the right */
+            font-size: 4rem;
+            color: #ff6a6a;
+            animation: heartbeat 1.5s infinite ease-in-out;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.5); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .result {
+            font-size: 24px;
+            color: #f1c40f;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Flameshope!</h1>
+    <p>Enter your name and your crush's name to predict your relationship type!</p>
+
+    <form id="flamesForm" method="POST" action="calculate.php">
+        <input type="text" id="yourName" name="yourName" placeholder="Your Name" required><br>
+        <input type="text" id="crushName" name="crushName" placeholder="Crush's Name" required><br>
+        <input type="submit" value="Calculate FLAMES">
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <!-- Heart Animation -->
+    <div class="heart">❤️</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
